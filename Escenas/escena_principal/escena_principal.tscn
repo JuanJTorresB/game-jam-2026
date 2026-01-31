@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh8f0c0hr5q7l"]
+
+[ext_resource type="Script" uid="uid://b1ikp00kvvhhb" path="res://Escenas/escena_principal/escena_principal.gd" id="1_d4by0"]
+[ext_resource type="PackedScene" uid="uid://xsayl7xuncwg" path="res://Escenas/debug_zone/debug_zone.tscn" id="2_m20ff"]
+
+[node name="EscenaPrincipal" type="Node2D"]
+script = ExtResource("1_d4by0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="debug_zone" parent="." instance=ExtResource("2_m20ff")]
+position = Vector2(-68, 3145)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
