@@ -55,4 +55,4 @@ func update_position() -> void:
 	
 
 func extend() -> void:
-	grown_time_left = 0 if grown_time_left > 0 else time_extended if time_extended >= 0 else 1
+	grown_time_left = 0.0 if grown_time_left > 0 else time_extended if time_extended >= 0 else 1.0
