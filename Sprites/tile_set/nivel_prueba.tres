@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c21uin3pnqmrg"]
+[gd_resource type="TileSet" format=3 uid="uid://c21uin3pnqmrg"]
 
 [ext_resource type="Texture2D" uid="uid://bsbx5tsx26mak" path="res://Sprites/place_holders_prueba/place-holder-yellow.png" id="1_y6ols"]
 
