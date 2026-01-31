@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player_body: CharacterBody2D = $CharacterBody2D
 @onready var player_script: PlayerScript = $CharacterBody2D
-@onready var player_sprite: Sprite2D = $CharacterBody2D/Sprite2D
+@onready var player_sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
 
 @export var enabled := true
 @export var buffer_size := 120
@@ -52,6 +52,7 @@ func _physics_process(_delta: float) -> void:
 	elif !Input.is_action_pressed("rewind") and (snapshots.is_empty() or !player_body.position.is_equal_approx(snapshots.get(snapshots.size()-1).pos)):
 		snapshots.push_back({
 			"pos": player_body.position,
+			"anim": player_sprite.animation,
 			"frame": player_sprite.frame,
 			"flip_h": player_sprite.flip_h
 		})
@@ -64,31 +65,32 @@ func _draw() -> void:
 	if !enabled or snapshots.is_empty() or !Input.is_action_pressed("rewind") or Input.is_action_just_released("rewind"):
 		return
 
-	var tex: Texture2D = player_sprite.texture
 	var scale := player_sprite.global_scale
 
 	for i in range(snapshots.size() / afterimage_interval):
+		
 		var snap = snapshots[i * afterimage_interval]
-		var frame_rect = get_frame_rect_from_frame(snap.frame)
+		var tex: Texture2D = player_sprite.sprite_frames.get_frame_texture(snap.anim, snap.frame)
+		var frame_rect = get_frame_rect_from_frame(tex)
 
 		var size = frame_rect.size * scale
-		var pos = snap.pos - size * 0.5
+		var pos = snap.pos #- size * 0.5
+		
+		draw_texture_rect(tex, Rect2(pos - Vector2(size.x * 0.5, size.y * 0.5), size), false, afterimage_color)
+		
+		#draw_texture_rect_region(
+			#tex,
+			#Rect2(pos, size),
+			#frame_rect,
+			#afterimage_color
+		#)
 
-		draw_texture_rect_region(
-			tex,
-			Rect2(pos, size),
-			frame_rect,
-			afterimage_color
-		)
-
-func get_frame_rect_from_frame(frame: int) -> Rect2:
-	var frame_w = player_sprite.texture.get_width() / player_sprite.hframes
-	var frame_h = player_sprite.texture.get_height() / player_sprite.vframes
-
-	var col = frame % player_sprite.hframes
-	var row = frame / player_sprite.hframes
+func get_frame_rect_from_frame(texture: Texture2D) -> Rect2:
+		
+	var frame_w = texture.get_width() 
+	var frame_h = texture.get_height()
 
 	return Rect2(
-		Vector2(col * frame_w, row * frame_h),
+		Vector2(0, 0),
 		Vector2(frame_w, frame_h)
 	)

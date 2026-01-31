@@ -4,6 +4,7 @@ class_name PlayerScript
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
 @onready var ray_center  : RayCast2D = $RayCenter
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const TILE_SIZE = 64
 const SPEED_TILES = 6
@@ -40,14 +41,23 @@ var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown = 0.0
 var dash_direction = 1
+var jumping := false
 
+@onready var respawn_point := global_position
 
 func _physics_process(delta):	
+	
+	# Definir direccion del personaje
+	var direction = Input.get_axis("left", "right")	
+	if direction != 0:
+		player_sprite.flip_h = direction < 0
+	
 	# Actualizar coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME		
 		h_vel *= 0.8
 		inputless_slingshot_time = 0
+		jumping = false
 
 	# Gravedad
 	if not is_on_floor():
@@ -59,6 +69,7 @@ func _physics_process(delta):
 	# Salto (con coyote time)
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = JUMP_BUFFER
+		jumping = true
 
 	jump_buffer_timer -= delta
 	
@@ -69,7 +80,6 @@ func _physics_process(delta):
 		print_debug("dash")
 		start_dash()
 		
-
 	if jump_buffer_timer > 0 and coyote_timer > 0:
 		velocity.y = JUMP_VELOCITY
 		jump_buffer_timer = 0
@@ -87,8 +97,7 @@ func _physics_process(delta):
 
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
-
-	var direction = Input.get_axis("left", "right")	
+	
 	
 	if not is_dashing:
 		if inputless_slingshot_time > 0 :
@@ -100,6 +109,17 @@ func _physics_process(delta):
 		inputless_slingshot_time -= delta
 	else:
 		h_vel = sign(h_vel) * max(0, abs(h_vel - direction))
+
+	#Animacion del personaje
+	if is_dashing:
+		player_sprite.play("dash")
+	elif jumping:
+		player_sprite.play("jump")
+	elif direction != 0 :
+		player_sprite.play("walk")
+	else:
+		player_sprite.play("idle")
+	
 
 	apply_edge_correction()
 	move_and_slide()
@@ -128,10 +148,12 @@ func start_dash():
 
 	velocity.y = 0
 	velocity.x = dash_direction * DASH_SPEED
+	
 
 		
 func get_dash_direction():
 	var dir = Input.get_axis("left", "right")
 	if dir != 0:
 		return sign(dir)
-	return sign(velocity.x) if velocity.x != 0 else 1
+	return -1 if player_sprite.flip_h else 1 #sign(velocity.x) if velocity.x != 0 else 1
+	
