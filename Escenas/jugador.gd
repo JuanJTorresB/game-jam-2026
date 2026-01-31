@@ -1,7 +1,11 @@
 extends CharacterBody2D
 class_name PlayerScript
 
+<<<<<<< HEAD
 signal personaje_muerto
+=======
+@export var can_dash: bool = false
+>>>>>>> 7134cbc73fab71674aeeceabf48e1891553b9ee5
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
@@ -92,7 +96,6 @@ func _physics_process(delta):
 		velocity.y *= JUMP_CUT_MULTIPLIER
 		
 	if Input.is_action_just_pressed("dash"):
-		print_debug("dash")
 		start_dash()
 		
 	if jump_buffer_timer > 0 and coyote_timer > 0:
@@ -152,7 +155,7 @@ func apply_edge_correction():
 		return
 		
 func start_dash():
-	if is_dashing or dash_cooldown > 0:
+	if !can_dash or is_dashing or dash_cooldown > 0:
 		return
 
 	is_dashing = true
