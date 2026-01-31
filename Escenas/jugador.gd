@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name PlayerScript
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
@@ -30,6 +31,11 @@ const DASH_SPEED = 14 * TILE_SIZE
 const DASH_TIME = 0.15
 const DASH_COOLDOWN = 0.5
 
+const INPUTLESS_SLINGSHOT_WINDOW := 0.5
+
+var inputless_slingshot_time: float = 0
+var h_vel := 0.0
+
 var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown = 0.0
@@ -40,6 +46,8 @@ func _physics_process(delta):
 	# Actualizar coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME		
+		h_vel *= 0.8
+		inputless_slingshot_time = 0
 
 	# Gravedad
 	if not is_on_floor():
@@ -80,9 +88,18 @@ func _physics_process(delta):
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
 
+	var direction = Input.get_axis("left", "right")	
+	
 	if not is_dashing:
-		var direction = Input.get_axis("left", "right")	
-		velocity.x = direction * SPEED
+		if inputless_slingshot_time > 0 :
+			velocity.x = h_vel
+		else: 
+			velocity.x = direction * SPEED + h_vel
+
+	if inputless_slingshot_time > 0 :
+		inputless_slingshot_time -= delta
+	else:
+		h_vel = sign(h_vel) * max(0, abs(h_vel - direction))
 
 	apply_edge_correction()
 	move_and_slide()
