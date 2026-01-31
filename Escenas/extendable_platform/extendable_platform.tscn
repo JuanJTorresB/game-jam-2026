@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvkkdxspbu60i"]
+
+[ext_resource type="Script" uid="uid://cxu8jxhtrtiw" path="res://Escenas/extendable_platform/extendable_platform.gd" id="1_gxyfi"]
+[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="2_4upwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n43nn"]
+size = Vector2(126, 128)
+
+[node name="FloraPlatform" type="Node2D"]
+script = ExtResource("1_gxyfi")
+extension_texture = ExtResource("2_4upwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, -63)
+texture = ExtResource("2_4upwa")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(64, -63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_n43nn")
