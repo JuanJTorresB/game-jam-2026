@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://cuttj80ecixj"]
+[gd_scene load_steps=4 format=3 uid="uid://cuttj80ecixj"]
+
+[ext_resource type="PackedScene" uid="uid://xf7acnm120e3" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
+[ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqur"]
+size = Vector2(1155, 152)
 
 [node name="Escena Prueba" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_c0h3w")]
+position = Vector2(184, 302)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_vsqur")]
+position = Vector2(193, 348)
+
+[node name="PISO" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PISO"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO/StaticBody2D"]
+position = Vector2(575.5, 575)
+shape = SubResource("RectangleShape2D_vsqur")
