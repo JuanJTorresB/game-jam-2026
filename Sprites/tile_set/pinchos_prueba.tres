@@ -1,14 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cuttj80ecixj"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d3x81hieuh26x"]
 
-[ext_resource type="PackedScene" uid="uid://waq13pgekiq5" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
-[ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
-[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="3_o1ito"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqur"]
-size = Vector2(1155, 152)
+[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="1_cwnl7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7icci"]
-texture = ExtResource("3_o1ito")
+texture = ExtResource("1_cwnl7")
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 8, -6.2950554, 3.057598, -5.036045, -0.5395756, -2.5180225, -3.5971737, -0.17985916, -5.3957615, 4.136751, -8, 8, -8, 8, 8)
 1:0/0 = 0
@@ -82,29 +77,9 @@ texture = ExtResource("3_o1ito")
 6:7/0 = 0
 7:7/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_c7m37"]
+[resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_7icci")
-
-[node name="Escena Prueba" type="Node2D"]
-
-[node name="Node2D" parent="." instance=ExtResource("1_c0h3w")]
-position = Vector2(199, 258)
-
-[node name="StaticBody2D" parent="." instance=ExtResource("2_vsqur")]
-position = Vector2(193, 348)
-
-[node name="PISO" type="Node2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="PISO"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO/StaticBody2D"]
-position = Vector2(575.5, 575)
-shape = SubResource("RectangleShape2D_vsqur")
-
-[node name="Pinchos" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAaAB4AAAAAAAAAAAAbAB4AAAABAAAAAAAcAB4AAAACAAAAAAAdAB4AAAADAAAAAAAeAB4AAAAEAAAAAAAfAB4AAAAFAAAAAAAgAB4AAAAGAAAAAAAhAB4AAAAHAAAAAAApAB4AAAAAAAAAAAAqAB4AAAABAAAAAAArAB4AAAACAAAAAAAsAB4AAAADAAAAAAAtAB4AAAAEAAAAAAAuAB4AAAAFAAAAAAAvAB4AAAAGAAAAAAAwAB4AAAAHAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAABAAAAAAA2AB4AAAACAAAAAAA3AB4AAAADAAAAAAA4AB4AAAAEAAAAAAA5AB4AAAAFAAAAAAA6AB4AAAAGAAAAAAA7AB4AAAAHAAAAAAA=")
-tile_set = SubResource("TileSet_c7m37")
