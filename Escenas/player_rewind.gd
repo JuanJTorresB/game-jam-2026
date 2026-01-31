@@ -1,54 +1,80 @@
 extends Node2D
 
-@onready var player_sprite: Sprite2D = $CharacterBody2D/Sprite2D
 @onready var player: CharacterBody2D = $CharacterBody2D
-const ICON = preload("uid://c5rwpacstwx7p")
-var player_image : Image
+@onready var player_sprite: Sprite2D = $CharacterBody2D/Sprite2D
 
-var snapshots: Array[Vector2] = []
+var snapshots: Array = []
+var buffer_size := 60
+
 var prev_rewind_pos: Vector2
-var can_slingshot: bool = false
-var rewind_velocity: float = 0
+var can_slingshot := false
+var rewind_velocity := 0.0
 
-var buffer_size = 60
 
-func _draw() -> void:
-	
-	var atlas: AtlasTexture = player_sprite.texture
-	
-	var full_image = player_sprite.texture.get_image()
-	var region_image = full_image.get_region(player_sprite.region_rect)
-	var new_texture = ImageTexture.create_from_image(region_image)
-
-	var tex = new_texture
-	#player_sprite.texture.draw_rect_region(CanvasItem.get)
-	
-	for i in range(snapshots.size() / 10) :
-		var snapshot = snapshots[i * 10]
-		
-		draw_texture(tex, snapshot, Color(1, 1, 1, 0.5))
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	
 	queue_redraw()
-	
-	if Input.is_action_just_pressed("rewind") :
+
+	# Inicio del rewind
+	if Input.is_action_just_pressed("rewind"):
 		rewind_velocity = player.velocity.length()
-	if !snapshots.is_empty() and Input.is_action_pressed("rewind") :
+
+	# Mientras se mantiene rewind
+	if !snapshots.is_empty() and Input.is_action_pressed("rewind"):
+		var snap = snapshots.pop_back()
+
 		prev_rewind_pos = player.position
 		can_slingshot = true
-		player.position = snapshots.pop_back()
-	elif Input.is_action_just_released("rewind") and can_slingshot :
+
+		player.position = snap.pos
+		player_sprite.frame = snap.frame
+		player_sprite.flip_h = snap.flip_h
+
+	# Al soltar rewind → slingshot
+	elif Input.is_action_just_released("rewind") and can_slingshot:
 		player.velocity = (player.position - prev_rewind_pos).normalized() * rewind_velocity
 		can_slingshot = false
+
+	# Grabación normal
 	else:
-		snapshots.push_back(player.position)
-		if snapshots.size() > buffer_size :
+		snapshots.push_back({
+			"pos": player.position,
+			"frame": player_sprite.frame,
+			"flip_h": player_sprite.flip_h
+		})
+
+		if snapshots.size() > buffer_size:
 			snapshots.pop_front()
+
+
+func _draw() -> void:
+	if snapshots.is_empty():
+		return
+
+	var tex: Texture2D = player_sprite.texture
+	var scale := player_sprite.global_scale
+
+	for i in range(snapshots.size() / 10):
+		var snap = snapshots[i * 10]
+		var frame_rect = get_frame_rect_from_frame(snap.frame)
+
+		var size = frame_rect.size * scale
+		var pos = snap.pos - size * 0.5
+
+		draw_texture_rect_region(
+			tex,
+			Rect2(pos, size),
+			frame_rect,
+			Color(4.666, 18.892, 18.892, 0.4)
+		)
+
+func get_frame_rect_from_frame(frame: int) -> Rect2:
+	var frame_w = player_sprite.texture.get_width() / player_sprite.hframes
+	var frame_h = player_sprite.texture.get_height() / player_sprite.vframes
+
+	var col = frame % player_sprite.hframes
+	var row = frame / player_sprite.hframes
+
+	return Rect2(
+		Vector2(col * frame_w, row * frame_h),
+		Vector2(frame_w, frame_h)
+	)

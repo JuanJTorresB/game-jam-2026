@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjwkrbfudvsna"]
+[gd_scene load_steps=6 format=3 uid="uid://cjwkrbfudvsna"]
 
 [ext_resource type="Script" path="res://Escenas/jugador.gd" id="1_i8vih"]
 [ext_resource type="Script" uid="uid://co5t5l88f7l4n" path="res://Escenas/player_rewind.gd" id="3_ewkf5"]
-[ext_resource type="Texture2D" uid="uid://b407gr48dr7xl" path="res://new_atlas_texture.tres" id="3_ut6g8"]
+[ext_resource type="Texture2D" uid="uid://c11lxmog42urw" path="res://Sprites/knight.png" id="3_ut6g8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlual"]
+atlas = ExtResource("3_ut6g8")
+region = Rect2(9, 9, 13, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(40, 69)
+size = Vector2(40, 66)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("3_ewkf5")
@@ -14,24 +18,24 @@ script = ExtResource("3_ewkf5")
 script = ExtResource("1_i8vih")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(5, 13)
+position = Vector2(-1, -1)
 scale = Vector2(4, 4)
-texture = ExtResource("3_ut6g8")
+texture = SubResource("AtlasTexture_wlual")
 region_enabled = true
-region_rect = Rect2(8, 8, 16, 24)
+region_rect = Rect2(0, 0, 13, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(5, 8.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="RayLeft" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(-13.565, 0)
+position = Vector2(-20, 1)
 target_position = Vector2(1, -45)
 
 [node name="RayCenter" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(3.87, 0)
+position = Vector2(0, 1)
 target_position = Vector2(1, -45)
 
 [node name="RayRight" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(22.78, 0)
+position = Vector2(19, 2)
 target_position = Vector2(1, -45)
