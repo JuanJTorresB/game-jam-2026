@@ -141,7 +141,7 @@ texture = ExtResource("1_5mv3h")
 [sub_resource type="TileSet" id="TileSet_vwvpi"]
 sources/0 = SubResource("TileSetAtlasSource_aptsr")
 
-[node name="Node2D" type="Node2D" unique_id=353267701]
+[node name="Escena_Tutorial" type="Node2D" unique_id=353267701]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1315853827]
 position = Vector2(0, -3)
