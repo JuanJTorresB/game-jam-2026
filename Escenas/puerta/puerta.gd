@@ -1,0 +1,18 @@
+extends Node2D
+
+@export var area2d: Area2D
+@export var nivel_destino: int
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	area2d.body_entered.connect(_puerta_usada)
+	if GameState.completed_levels.get("level_"+str(nivel_destino), false):
+		self.queue_free()
+
+func _puerta_usada(_body):
+	print("Cuerpo entrando a la puerta: " + str(nivel_destino))
+	get_parent().get_parent().get_parent().cambio_de_nivel(nivel_destino)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass

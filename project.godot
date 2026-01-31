@@ -55,6 +55,25 @@ rewind={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
+run/main_scene="uid://bh8f0c0hr5q7l"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://Config/Game_State/game_state.gd"
+
+[layer_names]
+
+2d_render/layer_1="solidos"
+2d_render/layer_2="daño"
+2d_render/layer_3="jugador"
+2d_render/layer_4="recolectable"
+2d_render/layer_5="warp_points"
+2d_physics/layer_1="Sólido"
+2d_physics/layer_2="Daño"
+2d_physics/layer_3="Jugador"
+2d_physics/layer_4="Recolectable"
 
 [rendering]
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp7dudkfs2ktv"]
+
+[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="1_byenx"]
+[ext_resource type="Script" uid="uid://dsnhyhe6l6deo" path="res://Escenas/mascara_fragmento/mascara_fragmento.gd" id="1_yd61d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd61d"]
+size = Vector2(126, 128)
+
+[node name="Mascara_Fragmento" type="Node2D" node_paths=PackedStringArray("area_2d")]
+script = ExtResource("1_yd61d")
+fragmento_numero = 2
+area_2d = NodePath("Area2D2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_byenx")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+light_mask = 16
+shape = SubResource("RectangleShape2D_yd61d")
