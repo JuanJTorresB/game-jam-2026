@@ -8,7 +8,7 @@ extends Node2D
 @export var buffer_size := 120
 @export var afterimage_interval := 5
 @export var afterimage_color := Color(4.666, 18.892, 18.892, 0.4)
-@export var max_slingshot_vel = 2000
+@export var max_slingshot_vel = 1500
 
 var snapshots: Array = []
 
@@ -61,7 +61,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _draw() -> void:
-	if !enabled or snapshots.is_empty() or Input.is_action_just_released("rewind"):
+	if !enabled or snapshots.is_empty() or !Input.is_action_pressed("rewind") or Input.is_action_just_released("rewind"):
 		return
 
 	var tex: Texture2D = player_sprite.texture
