@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://byjj1gfpbm3l5"]
+
+[ext_resource type="Script" uid="uid://bjctypor0j1pj" path="res://Escenas/puerta/puerta.gd" id="1_f7r3u"]
+[ext_resource type="Texture2D" uid="uid://dy70ns1ixetyb" path="res://Sprites/place_holders_prueba/puerta.png" id="2_nppw7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7exh"]
+size = Vector2(126, 128)
+
+[node name="Puerta" type="Node2D" node_paths=PackedStringArray("area2d")]
+script = ExtResource("1_f7r3u")
+area2d = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nppw7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 16
+shape = SubResource("RectangleShape2D_f7exh")

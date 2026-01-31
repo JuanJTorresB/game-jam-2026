@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d16khyqqugnko"]
+
+[ext_resource type="Script" uid="uid://btww0qa1dri13" path="res://Escenas/mascara_expuesta/mascara_expuesta.gd" id="1_5egch"]
+[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="1_cqg88"]
+
+[node name="Mascara_Expuesta" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_5egch")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1.7779143, 1.4869862, 18.892157, 1)
+texture = ExtResource("1_cqg88")

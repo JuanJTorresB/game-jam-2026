@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codnifqcku1gp"
-path="res://.godot/imported/34.png-62f9ed3283081b176a652b9905fef6fe.ctex"
+uid="uid://dy70ns1ixetyb"
+path="res://.godot/imported/puerta.png-ff2918c87959b40fd092d5ad8ec842d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/place_holders_prueba/34.png"
-dest_files=["res://.godot/imported/34.png-62f9ed3283081b176a652b9905fef6fe.ctex"]
+source_file="res://Sprites/place_holders_prueba/puerta.png"
+dest_files=["res://.godot/imported/puerta.png-ff2918c87959b40fd092d5ad8ec842d5.ctex"]
 
 [params]
 

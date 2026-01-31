@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://oux3dghxfxk4"]
+
+[ext_resource type="Script" uid="uid://7k1vxssdpmgv" path="res://Escenas/prueba_basica_personaje/character_body_2d.gd" id="1_flmdk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfr4x"]
+radius = 56.0
+height = 256.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flmdk"]
+radius = 57.0
+height = 260.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_flmdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rfr4x")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_flmdk")

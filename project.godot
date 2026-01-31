@@ -15,12 +15,17 @@ run/main_scene="uid://bh8f0c0hr5q7l"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://Config/Game_State/game_state.gd"
+
 [layer_names]
 
 2d_render/layer_1="solidos"
 2d_render/layer_2="daño"
 2d_render/layer_3="jugador"
 2d_render/layer_4="recolectable"
+2d_render/layer_5="warp_points"
 2d_physics/layer_1="Sólido"
 2d_physics/layer_2="Daño"
 2d_physics/layer_3="Jugador"
