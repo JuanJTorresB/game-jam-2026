@@ -1,93 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://cuttj80ecixj"]
+[gd_scene load_steps=5 format=4 uid="uid://cuttj80ecixj"]
 
 [ext_resource type="PackedScene" uid="uid://waq13pgekiq5" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
 [ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
-[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="3_o1ito"]
+[ext_resource type="TileSet" uid="uid://d3x81hieuh26x" path="res://Sprites/tile_set/pinchos_prueba.tres" id="3_o1ito"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqur"]
 size = Vector2(1155, 152)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7icci"]
-texture = ExtResource("3_o1ito")
-0:0/0 = 0
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 8, -6.2950554, 3.057598, -5.036045, -0.5395756, -2.5180225, -3.5971737, -0.17985916, -5.3957615, 4.136751, -8, 8, -8, 8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -3.5971737, -8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0 = 0
-4:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -3.7770329, -8, -8, 8, -8, 8, 8, -8, 8)
-5:0/0 = 0
-5:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:0/0 = 0
-6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -3.4173155, -8, -8, 8, -8, 8, -4.3166084, 8, 8, -8, 8)
-7:0/0 = 0
-7:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -3.4173155, -8, -8, -1.6187286, -8, 3.2374573, -2.6978807, 5.3957615, 0.35971832, 8, 5.75548, 8, 8, -8, 8)
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_c7m37"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 0
-physics_layer_1/collision_layer = 2
-physics_layer_1/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_7icci")
 
 [node name="Escena Prueba" type="Node2D"]
 
@@ -107,4 +25,4 @@ shape = SubResource("RectangleShape2D_vsqur")
 
 [node name="Pinchos" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAaAB4AAAAAAAAAAAAbAB4AAAABAAAAAAAcAB4AAAACAAAAAAAdAB4AAAADAAAAAAAeAB4AAAAEAAAAAAAfAB4AAAAFAAAAAAAgAB4AAAAGAAAAAAAhAB4AAAAHAAAAAAApAB4AAAAAAAAAAAAqAB4AAAABAAAAAAArAB4AAAACAAAAAAAsAB4AAAADAAAAAAAtAB4AAAAEAAAAAAAuAB4AAAAFAAAAAAAvAB4AAAAGAAAAAAAwAB4AAAAHAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAABAAAAAAA2AB4AAAACAAAAAAA3AB4AAAADAAAAAAA4AB4AAAAEAAAAAAA5AB4AAAAFAAAAAAA6AB4AAAAGAAAAAAA7AB4AAAAHAAAAAAA=")
-tile_set = SubResource("TileSet_c7m37")
+tile_set = ExtResource("3_o1ito")

@@ -271,6 +271,10 @@ material_presonaje_rojo = SubResource("ShaderMaterial_rldw1")
 animacion = NodePath("AnimatedSprite2D")
 area_2d = NodePath("Area2D")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 light_mask = 4
 position = Vector2(0, 4)
