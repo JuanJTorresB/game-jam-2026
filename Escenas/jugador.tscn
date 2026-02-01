@@ -1,7 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://waq13pgekiq5"]
+[gd_scene load_steps=41 format=3 uid="uid://cuxlyj3lwvtux"]
 
 [ext_resource type="Script" uid="uid://4b3jlc64ote0" path="res://Escenas/jugador.gd" id="1_i8vih"]
-[ext_resource type="Script" path="res://Escenas/player_rewind.gd" id="3_ewkf5"]
+[ext_resource type="Script" uid="uid://co5t5l88f7l4n" path="res://Escenas/player_rewind.gd" id="3_ewkf5"]
 [ext_resource type="Texture2D" uid="uid://c11lxmog42urw" path="res://Sprites/knight.png" id="3_ut6g8"]
 [ext_resource type="Shader" uid="uid://bhs5cao1k6xjr" path="res://Shaders/shader_rojo.tres" id="3_wlual"]
 

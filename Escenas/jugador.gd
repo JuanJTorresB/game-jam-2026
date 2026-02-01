@@ -1,11 +1,8 @@
 extends CharacterBody2D
 class_name PlayerScript
 
-<<<<<<< HEAD
 signal personaje_muerto
-=======
 @export var can_dash: bool = false
->>>>>>> 7134cbc73fab71674aeeceabf48e1891553b9ee5
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
@@ -15,7 +12,6 @@ signal personaje_muerto
 @export var material_presonaje_rojo: ShaderMaterial
 @export var animacion: Node
 @export var area_2d : Area2D
-@export var can_dash : bool
 @export var spotlight: ColorRect
 
 var _muerto: bool = false
