@@ -201,7 +201,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("2_6s4xf")
 
 [node name="Player" parent="." instance=ExtResource("3_6s4xf")]
-position = Vector2(3136, -192)
+position = Vector2(-24, -2240)
 enabled = false
 
 [node name="Puertas" type="Node2D" parent="."]

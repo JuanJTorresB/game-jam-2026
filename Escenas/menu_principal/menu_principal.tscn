@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bhi4iyxdg6l5f" path="res://Sprites/Mascaras_Sprites/Mascara Tigre.png" id="5_baawd"]
 [ext_resource type="Script" uid="uid://tmcycaw6qcru" path="res://Escenas/menu_principal/button_salir.gd" id="5_i7bma"]
 [ext_resource type="Script" uid="uid://cyjip04b1v216" path="res://Escenas/menu_principal/button_jugar.gd" id="5_w8t3o"]
-[ext_resource type="PackedScene" uid="uid://bh8f0c0hr5q7l" path="res://Escenas/escena_principal/escena_principal.tscn" id="6_sjfpa"]
+[ext_resource type="PackedScene" uid="uid://dvtomoqbs1ekn" path="res://Escenas/cutscenes/opening_cutscene.tscn" id="6_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://b02pqvnfgiq4v" path="res://Sprites/Mascaras_Sprites/Mascara Dorada.png" id="6_sqrey"]
 
 [sub_resource type="Theme" id="Theme_v3x1a"]
