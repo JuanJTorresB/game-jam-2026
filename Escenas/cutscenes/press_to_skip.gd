@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
-@onready var skip_cutscene_label: Label = $SkipCutsceneLabel
+@export var skip_cutscene_label: Label
 @onready var level_fade: LevelFade = $CanvasLayer/LevelFade
 
 var skips := 2

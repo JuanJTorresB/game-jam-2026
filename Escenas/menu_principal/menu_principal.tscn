@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://byxu6xb5xr45a"]
+[gd_scene load_steps=14 format=3 uid="uid://byxu6xb5xr45a"]
 
-[ext_resource type="Texture2D" uid="uid://clfpbxqeb15ng" path="res://Sprites/bg/Artboard5.png" id="1_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://cenj3y54sbcw5" path="res://Sprites/Mascaras_Sprites/Mascara Flora.png" id="2_i7bma"]
+[ext_resource type="FontFile" uid="uid://dtqptc4ywjurp" path="res://Fonts/ZenithaClassic_PERSONAL_USE_ONLY.otf" id="3_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://dst2xsfa15va6" path="res://Sprites/Mascaras_Sprites/Mascara Marimonda.png" id="3_w8t3o"]
 [ext_resource type="Theme" uid="uid://8gm3f7aoj4kw" path="res://Themes/boton_menu_principal.tres" id="4_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://bhi4iyxdg6l5f" path="res://Sprites/Mascaras_Sprites/Mascara Tigre.png" id="5_baawd"]
@@ -10,7 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://dvtomoqbs1ekn" path="res://Escenas/cutscenes/opening_cutscene.tscn" id="6_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://b02pqvnfgiq4v" path="res://Sprites/Mascaras_Sprites/Mascara Dorada.png" id="6_sqrey"]
 
+[sub_resource type="Gradient" id="Gradient_sjfpa"]
+offsets = PackedFloat32Array(0, 0.9791667)
+colors = PackedColorArray(0, 0, 0, 1, 0.5921569, 0.91764706, 0.91764706, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_baawd"]
+gradient = SubResource("Gradient_sjfpa")
+
 [sub_resource type="Theme" id="Theme_v3x1a"]
+
+[sub_resource type="Theme" id="Theme_w8t3o"]
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("3_sjfpa")
 
 [node name="Menu Principal" type="Control"]
 layout_mode = 3
@@ -26,13 +37,15 @@ offset_left = -6.0
 offset_right = 1915.0
 offset_bottom = 1081.0
 scale = Vector2(0.60154533, 0.60229987)
-texture = ExtResource("1_sjfpa")
+texture = SubResource("GradientTexture2D_baawd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5509981, 0.31150454)
+offset_left = 68.00001
+offset_top = 2.0000007
+offset_right = 3197.0
+offset_bottom = 2097.0
+scale = Vector2(0.32415357, 0.30791768)
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -51,6 +64,11 @@ texture = ExtResource("3_w8t3o")
 layout_mode = 2
 theme_override_constants/separation = 200
 alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_w8t3o")
+text = "Las Ruinas del Condor Caido"
 
 [node name="button_jugar" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvtomoqbs1ekn"]
+[gd_scene load_steps=15 format=3 uid="uid://dvtomoqbs1ekn"]
 
 [ext_resource type="FontFile" uid="uid://dtqptc4ywjurp" path="res://Fonts/ZenithaClassic_PERSONAL_USE_ONLY.otf" id="1_otyuj"]
 [ext_resource type="Script" path="res://Escenas/cutscenes/press_to_skip.gd" id="1_oybj0"]
 [ext_resource type="Texture2D" uid="uid://brkv4tf7a1ndj" path="res://Sprites/extras/Marimonda Completa.png" id="3_r6ikc"]
 [ext_resource type="PackedScene" uid="uid://bkmj3s48xpl7p" path="res://Escenas/cutscenes/level_fade.tscn" id="4_y1sn8"]
 [ext_resource type="PackedScene" uid="uid://bh8f0c0hr5q7l" path="res://Escenas/escena_principal/escena_principal.tscn" id="5_r6ikc"]
+[ext_resource type="Texture2D" uid="uid://d0omaav4wj7s8" path="res://Sprites/cutscene_resources/ggj 2026 intro.png" id="6_guwu1"]
+[ext_resource type="Texture2D" uid="uid://c0fo0cakh7vxf" path="res://Sprites/cutscene_resources/ggj 2026 introb0-02.png" id="7_lmka5"]
+[ext_resource type="Texture2D" uid="uid://b7iebipql3td0" path="res://Sprites/cutscene_resources/ggj 2026 introb1-02.png" id="8_y2xx6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_61eif"]
 font = ExtResource("1_otyuj")
@@ -175,12 +178,14 @@ _data = {
 font = ExtResource("1_otyuj")
 font_size = 20
 
-[node name="OpeningCutscene" type="Node2D"]
+[node name="OpeningCutscene" type="Node2D" node_paths=PackedStringArray("skip_cutscene_label")]
 script = ExtResource("1_oybj0")
+skip_cutscene_label = NodePath("CanvasLayer/SkipCutsceneLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 offset_top = 40.0
 offset_right = 1149.0
 offset_bottom = 180.99997
@@ -190,6 +195,7 @@ label_settings = SubResource("LabelSettings_61eif")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 472.0
 offset_top = 102.0
 offset_right = 1781.0
@@ -202,6 +208,7 @@ label_settings = SubResource("LabelSettings_oybj0")
 horizontal_alignment = 1
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer"]
+visible = false
 position = Vector2(564, 415.69998)
 scale = Vector2(0.095315166, 0.07930149)
 texture = ExtResource("3_r6ikc")
@@ -216,11 +223,30 @@ autoplay = "cutscene"
 scale = Vector2(1.0086519, 1)
 next_level = ExtResource("5_r6ikc")
 
-[node name="SkipCutsceneLabel" type="Label" parent="."]
-visible = false
-offset_left = 715.0
+[node name="Fondo Caida" type="TextureRect" parent="CanvasLayer"]
+offset_right = 4000.0
+offset_bottom = 3300.0
+scale = Vector2(0.28880057, 0.19998103)
+texture = ExtResource("6_guwu1")
+
+[node name="TEXT_1" type="TextureRect" parent="CanvasLayer"]
+offset_left = -35.0
+offset_top = 14.0
+offset_right = 458.0
+offset_bottom = 198.0
+texture = ExtResource("7_lmka5")
+
+[node name="TEXT_2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 682.0
+offset_top = 437.0
+offset_right = 1175.0
+offset_bottom = 621.0
+texture = ExtResource("8_y2xx6")
+
+[node name="SkipCutsceneLabel" type="Label" parent="CanvasLayer"]
+offset_left = 713.0
 offset_top = 616.0
-offset_right = 1148.0
+offset_right = 1146.0
 offset_bottom = 643.0
 text = "Oprime cualquier tecla para continuar"
 label_settings = SubResource("LabelSettings_y1sn8")

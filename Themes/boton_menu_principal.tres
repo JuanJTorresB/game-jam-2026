@@ -1,5 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://8gm3f7aoj4kw"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8gm3f7aoj4kw"]
+
+[ext_resource type="FontFile" uid="uid://dtqptc4ywjurp" path="res://Fonts/ZenithaClassic_PERSONAL_USE_ONLY.otf" id="1_1sh53"]
 
 [resource]
 Button/constants/outline_size = 10
 Button/font_sizes/font_size = 80
+Button/fonts/font = ExtResource("1_1sh53")
