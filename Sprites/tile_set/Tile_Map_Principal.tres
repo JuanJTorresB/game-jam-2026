@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bwqm1safsm0md"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://xb8yaoa6n2g4"]
 
 [ext_resource type="Texture2D" uid="uid://de1duiojo0oaj" path="res://Sprites/atlas/spritesheet-tiles-default.png" id="1_86310"]
 
@@ -275,7 +275,9 @@ texture_region_size = Vector2i(64, 64)
 5:11/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 6:11/0 = 0
 9:11/0 = 0
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 10:11/0 = 0
+10:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 13:11/0 = 0
 14:11/0 = 0
 16:11/0 = 0
@@ -466,6 +468,7 @@ texture_region_size = Vector2i(64, 64)
 7:11/0 = 0
 7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 8:11/0 = 0
+8:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 11:11/0 = 0
 11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 11:11/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)

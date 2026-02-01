@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://cuxlyj3lwvtux"]
+[gd_scene load_steps=42 format=3 uid="uid://cxqwygimosfb6"]
 
 [ext_resource type="Script" uid="uid://4b3jlc64ote0" path="res://Escenas/personaje/jugador.gd" id="1_i8vih"]
 [ext_resource type="Script" uid="uid://co5t5l88f7l4n" path="res://Escenas/personaje/player_rewind.gd" id="3_ewkf5"]
 [ext_resource type="Texture2D" uid="uid://c11lxmog42urw" path="res://Sprites/knight.png" id="3_ut6g8"]
-[ext_resource type="Shader" uid="uid://bhs5cao1k6xjr" path="res://Shaders/shader_rojo.tres" id="3_wlual"]
+[ext_resource type="Shader" uid="uid://dtjuigxjvukm1" path="res://Shaders/shader_rojo.tres" id="3_wlual"]
+[ext_resource type="AudioStream" uid="uid://dlrh82red1ygf" path="res://Sounds/Walking_Player.wav" id="5_uqdtg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rldw1"]
 shader = ExtResource("3_wlual")
@@ -296,7 +297,7 @@ target_position = Vector2(1, -45)
 position = Vector2(2, -13)
 scale = Vector2(4.1328125, 4.1328125)
 sprite_frames = SubResource("SpriteFrames_66cid")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
@@ -306,3 +307,7 @@ collision_mask = 2
 [node name="Area Trigger Daño" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_ewkf5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("5_uqdtg")
+volume_db = 7.0
