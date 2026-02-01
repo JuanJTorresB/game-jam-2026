@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name PlayerScript
 
 signal personaje_muerto
+@export var can_dash: bool = false
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
@@ -11,6 +12,8 @@ signal personaje_muerto
 @export var material_presonaje_rojo: ShaderMaterial
 @export var animacion: Node
 @export var area_2d : Area2D
+@export var spotlight: ColorRect
+@export var camera_2d: Camera2D
 
 var _muerto: bool = false
 
@@ -92,7 +95,6 @@ func _physics_process(delta):
 		velocity.y *= JUMP_CUT_MULTIPLIER
 		
 	if Input.is_action_just_pressed("dash"):
-		print_debug("dash")
 		start_dash()
 		
 	if jump_buffer_timer > 0 and coyote_timer > 0:
@@ -138,6 +140,20 @@ func _physics_process(delta):
 
 	apply_edge_correction()
 	move_and_slide()
+	
+	if spotlight != null:
+		
+		var shader: ShaderMaterial = spotlight.material
+		var viewport_size = camera_2d.get_viewport_rect().size
+		var spotlight_pos = ((global_position - camera_2d.global_position) / viewport_size) + Vector2(0.5, 0.5)
+		
+		var spotlight_scale = viewport_size.normalized()
+		spotlight_scale = spotlight_scale / min(spotlight_scale.x, spotlight_scale.y)
+		
+		shader.set_shader_parameter("spotlight_x", spotlight_pos.x)
+		shader.set_shader_parameter("spotlight_y", spotlight_pos.y)
+		shader.set_shader_parameter("spotlight_w", spotlight_scale.y)
+		shader.set_shader_parameter("spotlight_h", spotlight_scale.x)
 
 func apply_edge_correction():
 	# Solo mientras sube
@@ -152,7 +168,7 @@ func apply_edge_correction():
 		return
 		
 func start_dash():
-	if is_dashing or dash_cooldown > 0:
+	if !can_dash or is_dashing or dash_cooldown > 0:
 		return
 
 	is_dashing = true

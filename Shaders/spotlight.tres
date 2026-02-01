@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnmcj6347di6a"]
+
+[ext_resource type="Shader" uid="uid://dfdj2qisoo2wf" path="res://Shaders/escena_prueba.gdshader" id="1_w6jco"]
+
+[resource]
+shader = ExtResource("1_w6jco")
+shader_parameter/spotlight_x = 0.20000000298024
+shader_parameter/spotlight_y = 0.40000000596048
+shader_parameter/spotlight_w = 1.0
+shader_parameter/spotlight_h = 1.0
