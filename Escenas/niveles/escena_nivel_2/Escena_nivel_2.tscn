@@ -174,3 +174,4 @@ tile_set = ExtResource("2_6s4xf")
 
 [node name="Player" parent="." instance=ExtResource("3_6s4xf")]
 position = Vector2(-68, -204)
+enabled = false
