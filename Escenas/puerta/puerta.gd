@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _puerta_usada(_body):
 	print("Cuerpo entrando a la puerta: " + str(nivel_destino))
+	print(get_parent().get_parent().get_parent().name)
 	get_parent().get_parent().get_parent().cambio_de_nivel(nivel_destino)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

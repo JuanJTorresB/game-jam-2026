@@ -189,6 +189,7 @@ func get_dash_direction():
 	return -1 if player_sprite.flip_h else 1 #sign(velocity.x) if velocity.x != 0 else 1
 	
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print(_body.name)
 	animacion.material = material_presonaje_rojo 
 	_muerto = true
 	player_sprite.stop()

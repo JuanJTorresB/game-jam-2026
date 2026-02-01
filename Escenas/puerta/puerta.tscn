@@ -14,6 +14,7 @@ area2d = NodePath("Area2D")
 texture = ExtResource("2_nppw7")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 16

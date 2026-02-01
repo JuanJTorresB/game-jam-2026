@@ -266,6 +266,7 @@ height = 52.0
 script = ExtResource("3_ewkf5")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animacion", "area_2d")]
+collision_layer = 4
 script = ExtResource("1_i8vih")
 material_presonaje_rojo = SubResource("ShaderMaterial_rldw1")
 animacion = NodePath("AnimatedSprite2D")
@@ -304,5 +305,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Area Trigger Daño" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_ewkf5")

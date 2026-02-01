@@ -1,21 +1,125 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp7dudkfs2ktv"]
+[gd_scene load_steps=11 format=3 uid="uid://bp7dudkfs2ktv"]
 
 [ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="1_byenx"]
 [ext_resource type="Script" uid="uid://dsnhyhe6l6deo" path="res://Escenas/mascara_fragmento/mascara_fragmento.gd" id="1_yd61d"]
+[ext_resource type="Texture2D" uid="uid://bhi4iyxdg6l5f" path="res://Sprites/Mascaras_Sprites/Mascara Tigre.png" id="2_nk5tp"]
+[ext_resource type="Texture2D" uid="uid://cenj3y54sbcw5" path="res://Sprites/Mascaras_Sprites/Mascara Flora.png" id="3_vu077"]
+[ext_resource type="Texture2D" uid="uid://b02pqvnfgiq4v" path="res://Sprites/Mascaras_Sprites/Mascara Dorada.png" id="4_63078"]
+[ext_resource type="Texture2D" uid="uid://dst2xsfa15va6" path="res://Sprites/Mascaras_Sprites/Mascara Marimonda.png" id="5_tqskl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yd61d"]
 size = Vector2(126, 128)
 
-[node name="Mascara_Fragmento" type="Node2D" node_paths=PackedStringArray("area_2d")]
+[sub_resource type="Animation" id="Animation_nk5tp"]
+resource_name = "mascara_floating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(-0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vu077"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63078"]
+_data = {
+&"RESET": SubResource("Animation_vu077"),
+&"mascara_floating": SubResource("Animation_nk5tp")
+}
+
+[node name="Mascara_Fragmento" type="Node2D" node_paths=PackedStringArray("area_2d", "sprite", "animation")]
 script = ExtResource("1_yd61d")
 fragmento_numero = 2
 area_2d = NodePath("Area2D2")
+sprite = NodePath("Sprite2D")
+animation = NodePath("AnimationPlayer")
+mascara_1_png = ExtResource("2_nk5tp")
+mascara_2_png = ExtResource("3_vu077")
+mascara_3_png = ExtResource("4_63078")
+mascara_4_png = ExtResource("5_tqskl")
+godot_default = ExtResource("1_byenx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_byenx")
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 light_mask = 16
 shape = SubResource("RectangleShape2D_yd61d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_63078")
+}
