@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://byxu6xb5xr45a"]
 
-[ext_resource type="Texture2D" uid="uid://chl7t7doa1tqd" path="res://Sprites/Stalk.png" id="1_ej2ee"]
+[ext_resource type="Texture2D" uid="uid://clfpbxqeb15ng" path="res://Sprites/bg/Artboard5.png" id="1_sjfpa"]
 [ext_resource type="Texture2D" uid="uid://cenj3y54sbcw5" path="res://Sprites/Mascaras_Sprites/Mascara Flora.png" id="2_i7bma"]
 [ext_resource type="Texture2D" uid="uid://dst2xsfa15va6" path="res://Sprites/Mascaras_Sprites/Mascara Marimonda.png" id="3_w8t3o"]
 [ext_resource type="Theme" uid="uid://8gm3f7aoj4kw" path="res://Themes/boton_menu_principal.tres" id="4_sjfpa"]
@@ -22,10 +22,11 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 648.0
-scale = Vector2(0.9961459, 1.0033654)
-texture = ExtResource("1_ej2ee")
+offset_left = -6.0
+offset_right = 1915.0
+offset_bottom = 1081.0
+scale = Vector2(0.60154533, 0.60229987)
+texture = ExtResource("1_sjfpa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

@@ -47,5 +47,6 @@ mascara_num = 3
 position = Vector2(1968, -756)
 mascara_num = 4
 
-[node name="Node2D" parent="." instance=ExtResource("5_vj3i1")]
+[node name="Player" parent="." instance=ExtResource("5_vj3i1")]
 position = Vector2(1876, -3437)
+enabled = false
