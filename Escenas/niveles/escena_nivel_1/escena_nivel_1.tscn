@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://cbqxkwlhmxq6e"]
+[gd_scene load_steps=7 format=4 uid="uid://cbqxkwlhmxq6e"]
 
-[ext_resource type="TileSet" uid="uid://dx00sjuw5h0hn" path="res://Sprites/tile_set/Tile_set_01.tres" id="1_7sf02"]
+[ext_resource type="TileSet" uid="uid://jl88bb4rvepv" path="res://Sprites/tile_set/Tile_set_01.tres" id="1_7sf02"]
 [ext_resource type="PackedScene" uid="uid://cieye8rvurm18" path="res://Escenas/sonido_fondo/sonido_fondo.tscn" id="1_hn0rv"]
-[ext_resource type="TileSet" uid="uid://xb8yaoa6n2g4" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="1_rm3uj"]
+[ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="1_rm3uj"]
 [ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="3_hn0rv"]
+[ext_resource type="PackedScene" uid="uid://byjj1gfpbm3l5" path="res://Escenas/puerta/puerta.tscn" id="5_15uji"]
+[ext_resource type="PackedScene" uid="uid://bp7dudkfs2ktv" path="res://Escenas/mascara_fragmento/mascara_fragmento.tscn" id="6_fynpd"]
 
 [node name="Escena_Nivel_1" type="Node2D"]
 
@@ -20,5 +22,15 @@ tile_map_data = PackedByteArray("AAAbAP//AQAAAAAAAAAcAP//AQAAAAEAAAAdAP//AQAAAAE
 tile_set = ExtResource("1_7sf02")
 
 [node name="Node2D" parent="." instance=ExtResource("3_hn0rv")]
-position = Vector2(1764, -244)
+position = Vector2(3333, -93)
 can_dash = true
+
+[node name="Mascara_Fragmento2" parent="." instance=ExtResource("6_fynpd")]
+position = Vector2(3564, -81)
+fragmento_numero = 1
+
+[node name="Puertas" type="Node2D" parent="."]
+
+[node name="Puerta" parent="Puertas" instance=ExtResource("5_15uji")]
+position = Vector2(3768, -316)
+nivel_destino = 1

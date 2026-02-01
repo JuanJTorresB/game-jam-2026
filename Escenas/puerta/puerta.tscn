@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://byjj1gfpbm3l5"]
+[gd_scene load_steps=5 format=3 uid="uid://byjj1gfpbm3l5"]
 
 [ext_resource type="Script" uid="uid://bjctypor0j1pj" path="res://Escenas/puerta/puerta.gd" id="1_f7r3u"]
-[ext_resource type="Texture2D" uid="uid://dy70ns1ixetyb" path="res://Sprites/place_holders_prueba/puerta.png" id="2_nppw7"]
+[ext_resource type="Texture2D" uid="uid://de1duiojo0oaj" path="res://Sprites/atlas/spritesheet-tiles-default.png" id="2_f7r3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nppw7"]
+atlas = ExtResource("2_f7r3u")
+region = Rect2(521.6551, 131.40228, 60.028137, 61.492218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7exh"]
 size = Vector2(126, 128)
@@ -11,7 +15,8 @@ script = ExtResource("1_f7r3u")
 area2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nppw7")
+scale = Vector2(2.1333334, 2.1311476)
+texture = SubResource("AtlasTexture_nppw7")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 4

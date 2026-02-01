@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://bfuqg68u7u0if"]
+[gd_scene load_steps=4 format=4 uid="uid://bfuqg68u7u0if"]
 
 [ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="2_aptsr"]
-[ext_resource type="PackedScene" uid="uid://cuxlyj3lwvtux" path="res://Escenas/personaje/jugador.tscn" id="3_gcyad"]
-[ext_resource type="PackedScene" uid="uid://d16khyqqugnko" path="res://Escenas/mascara_expuesta/mascara_expuesta.tscn" id="3_vlc4o"]
-[ext_resource type="PackedScene" uid="uid://bp7dudkfs2ktv" path="res://Escenas/mascara_fragmento/mascara_fragmento.tscn" id="4_vlc4o"]
+[ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="3_gcyad"]
 [ext_resource type="PackedScene" uid="uid://byjj1gfpbm3l5" path="res://Escenas/puerta/puerta.tscn" id="5_oxto0"]
 
 [node name="Escena_Tutorial" type="Node2D"]
@@ -13,46 +11,12 @@ tile_map_data = PackedByteArray("AAA7AAAAAAAOAA8AAAAAANr/AAAQABAAAAAAANv/AAAQABA
 tile_set = ExtResource("2_aptsr")
 
 [node name="Player" parent="." instance=ExtResource("3_gcyad")]
-position = Vector2(116, -99)
-
-[node name="Mascaras_Podio" type="Node2D" parent="."]
-
-[node name="Mascara_Expuesta" parent="Mascaras_Podio" instance=ExtResource("3_vlc4o")]
-position = Vector2(334, -500)
-mascara_num = 1
-
-[node name="Mascara_Expuesta2" parent="Mascaras_Podio" instance=ExtResource("3_vlc4o")]
-position = Vector2(490, -501)
-mascara_num = 2
-
-[node name="Mascara_Expuesta3" parent="Mascaras_Podio" instance=ExtResource("3_vlc4o")]
-position = Vector2(693, -495)
-mascara_num = 3
-
-[node name="Mascara_Expuesta4" parent="Mascaras_Podio" instance=ExtResource("3_vlc4o")]
-position = Vector2(819, -503)
-mascara_num = 4
-
-[node name="Mascaras_Trigger" type="Node2D" parent="."]
-
-[node name="Mascaras_Fragmento" type="Node2D" parent="."]
-
-[node name="Mascara_Fragmento" parent="Mascaras_Fragmento" instance=ExtResource("4_vlc4o")]
-position = Vector2(337, -96)
-fragmento_numero = 1
-
-[node name="Mascara_Fragmento2" parent="Mascaras_Fragmento" instance=ExtResource("4_vlc4o")]
-position = Vector2(560, -96)
-
-[node name="Mascara_Fragmento3" parent="Mascaras_Fragmento" instance=ExtResource("4_vlc4o")]
-position = Vector2(801, -94)
-fragmento_numero = 3
-
-[node name="Mascara_Fragmento4" parent="Mascaras_Fragmento" instance=ExtResource("4_vlc4o")]
-position = Vector2(1047, -89)
-fragmento_numero = 4
+position = Vector2(695, -330)
 
 [node name="Puertas" type="Node2D" parent="."]
 
 [node name="Puerta" parent="Puertas" instance=ExtResource("5_oxto0")]
-position = Vector2(1224, -80)
+visible = false
+position = Vector2(3352, 607)
+scale = Vector2(5, 1)
+nivel_destino = 1

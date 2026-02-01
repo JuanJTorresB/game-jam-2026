@@ -1,18 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh8f0c0hr5q7l"]
+[gd_scene load_steps=9 format=3 uid="uid://bh8f0c0hr5q7l"]
 
 [ext_resource type="Script" uid="uid://b1ikp00kvvhhb" path="res://Escenas/escena_principal/escena_principal.gd" id="1_d4by0"]
-[ext_resource type="PackedScene" uid="uid://cgkxbglxycg3h" path="res://Escenas/niveles_prueba/nivel_prueba_1/nivel_prueba_1.tscn" id="2_2cbot"]
-[ext_resource type="PackedScene" uid="uid://dkvr0jnuxhg4l" path="res://Escenas/niveles_prueba/nivel_prueba_2/nivel_prueba_2.tscn" id="3_4ly5i"]
-[ext_resource type="PackedScene" uid="uid://bd8ossj66kxrh" path="res://Escenas/niveles_prueba/nivel_prueba_3/nivel_prueba_3.tscn" id="4_81nay"]
-[ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="6_2cbot"]
+[ext_resource type="PackedScene" uid="uid://cbqxkwlhmxq6e" path="res://Escenas/niveles/escena_nivel_1/escena_nivel_1.tscn" id="3_4ly5i"]
+[ext_resource type="PackedScene" uid="uid://cs7q642m5qn5y" path="res://Escenas/hub_central/escena_hub_central.tscn" id="3_81nay"]
+[ext_resource type="PackedScene" uid="uid://bjpmtbs7f88lr" path="res://Escenas/niveles/escena_nivel_2/Escena_nivel_2.tscn" id="4_81nay"]
+[ext_resource type="PackedScene" uid="uid://euuwle20g673" path="res://Escenas/niveles/escena_nivel_3/Escena_Nivel_3.tscn" id="5_o0x7m"]
 [ext_resource type="PackedScene" uid="uid://c5hv2cnowe8ja" path="res://Config/Game_State/game_state.tscn" id="6_dc0xd"]
+[ext_resource type="PackedScene" uid="uid://4qs443qg2iej" path="res://Escenas/niveles/escena_nivel_4/Escena_Nivel_4.tscn" id="6_ueh2r"]
 [ext_resource type="PackedScene" uid="uid://bfuqg68u7u0if" path="res://Escenas/nivel_tutorial/Nivel_Tutorial.tscn" id="8_81nay"]
 
 [node name="EscenaPrincipal" type="Node2D"]
 script = ExtResource("1_d4by0")
-secciones = Array[PackedScene]([ExtResource("8_81nay")])
-
-[node name="Jugador" parent="." instance=ExtResource("6_2cbot")]
+secciones = Array[PackedScene]([ExtResource("8_81nay"), ExtResource("3_81nay"), ExtResource("3_4ly5i"), ExtResource("4_81nay"), ExtResource("5_o0x7m"), ExtResource("6_ueh2r")])
 
 [node name="game_state" parent="." instance=ExtResource("6_dc0xd")]
 
