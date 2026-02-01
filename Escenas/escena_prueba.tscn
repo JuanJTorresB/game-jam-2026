@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuttj80ecixj"]
+[gd_scene load_steps=5 format=3 uid="uid://cuttj80ecixj"]
 
 [ext_resource type="PackedScene" uid="uid://s68oihj7clms" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
-[ext_resource type="PackedScene" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
+[ext_resource type="PackedScene" uid="uid://cieye8rvurm18" path="res://Escenas/sonido_fondo/sonido_fondo.tscn" id="1_o1ito"]
+[ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqur"]
 size = Vector2(1155, 152)
 
 [node name="Escena Prueba" type="Node2D"]
+
+[node name="SonidoFondo" parent="." instance=ExtResource("1_o1ito")]
 
 [node name="Node2D" parent="." instance=ExtResource("1_c0h3w")]
 position = Vector2(199, 258)

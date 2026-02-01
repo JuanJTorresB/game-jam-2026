@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://s68oihj7clms"]
+[gd_scene load_steps=39 format=3 uid="uid://s68oihj7clms"]
 
 [ext_resource type="Script" uid="uid://4b3jlc64ote0" path="res://Escenas/jugador.gd" id="1_i8vih"]
 [ext_resource type="Script" uid="uid://co5t5l88f7l4n" path="res://Escenas/player_rewind.gd" id="3_ewkf5"]
 [ext_resource type="Texture2D" uid="uid://c11lxmog42urw" path="res://Sprites/knight.png" id="3_ut6g8"]
+[ext_resource type="AudioStream" uid="uid://dlrh82red1ygf" path="res://Sounds/Walking_Player.wav" id="4_ut6g8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(40, 66)
@@ -280,5 +281,10 @@ target_position = Vector2(1, -45)
 position = Vector2(2, -13)
 scale = Vector2(4.1328125, 4.1328125)
 sprite_frames = SubResource("SpriteFrames_66cid")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("4_ut6g8")
+volume_db = 20.0
+area_mask = 2

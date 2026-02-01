@@ -7,6 +7,7 @@ class_name PlayerScript
 @onready var ray_right  : RayCast2D = $RayRight
 @onready var ray_center  : RayCast2D = $RayCenter
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sound_walking: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const TILE_SIZE = 64
 const SPEED_TILES = 6
@@ -60,6 +61,7 @@ func _physics_process(delta):
 		h_vel *= 0.8
 		inputless_slingshot_time = 0
 		jumping = false
+		
 
 	# Gravedad
 	if not is_on_floor():
@@ -114,14 +116,19 @@ func _physics_process(delta):
 	#Animacion del personaje
 	if is_dashing:
 		player_sprite.play("dash")
+		sound_walking.stop()
 	elif jumping:
 		player_sprite.play("jump")
+		sound_walking.stop()
 	elif direction != 0 :
 		player_sprite.play("walk")
+		if !sound_walking.is_playing():
+			sound_walking.play()
 	else:
 		player_sprite.play("idle")
+		sound_walking.stop()
 	
-
+	
 	apply_edge_correction()
 	move_and_slide()
 
