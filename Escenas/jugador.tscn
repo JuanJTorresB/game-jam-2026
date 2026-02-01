@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=41 format=3 uid="uid://waq13pgekiq5"]
-=======
-[gd_scene load_steps=38 format=3 uid="uid://s68oihj7clms"]
->>>>>>> 7134cbc73fab71674aeeceabf48e1891553b9ee5
 
 [ext_resource type="Script" uid="uid://4b3jlc64ote0" path="res://Escenas/jugador.gd" id="1_i8vih"]
 [ext_resource type="Script" path="res://Escenas/player_rewind.gd" id="3_ewkf5"]
