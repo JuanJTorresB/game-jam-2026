@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://d16khyqqugnko"]
+[gd_scene load_steps=7 format=3 uid="uid://d16khyqqugnko"]
 
 [ext_resource type="Script" uid="uid://btww0qa1dri13" path="res://Escenas/mascara_expuesta/mascara_expuesta.gd" id="1_5egch"]
 [ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="1_cqg88"]
+[ext_resource type="Texture2D" uid="uid://bhi4iyxdg6l5f" path="res://Sprites/Mascaras_Sprites/Mascara Tigre.png" id="2_clqea"]
+[ext_resource type="Texture2D" uid="uid://cenj3y54sbcw5" path="res://Sprites/Mascaras_Sprites/Mascara Flora.png" id="3_uck2e"]
+[ext_resource type="Texture2D" uid="uid://b02pqvnfgiq4v" path="res://Sprites/Mascaras_Sprites/Mascara Dorada.png" id="4_0swwb"]
+[ext_resource type="Texture2D" uid="uid://dst2xsfa15va6" path="res://Sprites/Mascaras_Sprites/Mascara Marimonda.png" id="5_luqnb"]
 
 [node name="Mascara_Expuesta" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_5egch")
 sprite = NodePath("Sprite2D")
+mascara_1_png = ExtResource("2_clqea")
+mascara_2_png = ExtResource("3_uck2e")
+mascara_3_png = ExtResource("4_0swwb")
+mascara_4_png = ExtResource("5_luqnb")
+godot_default = ExtResource("1_cqg88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(1.7779143, 1.4869862, 18.892157, 1)
+self_modulate = Color(2.2553642, 2.0398653, 1.488188, 1)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_cqg88")
