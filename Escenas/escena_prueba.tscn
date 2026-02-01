@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cuttj80ecixj"]
 
-[ext_resource type="PackedScene" uid="uid://s68oihj7clms" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
+[ext_resource type="PackedScene" uid="uid://cuxlyj3lwvtux" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
 [ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
 [ext_resource type="TileSet" uid="uid://d3x81hieuh26x" path="res://Sprites/tile_set/pinchos_prueba.tres" id="3_o1ito"]
 
