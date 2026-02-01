@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://diewa4t8s7wtx"]
+[gd_scene load_steps=8 format=3 uid="uid://diewa4t8s7wtx"]
 
 [ext_resource type="PackedScene" uid="uid://bvkkdxspbu60i" path="res://Escenas/extendable_platform/extendable_platform.tscn" id="1_mvx33"]
 [ext_resource type="Texture2D" uid="uid://chl7t7doa1tqd" path="res://Sprites/Stalk.png" id="2_e1e8u"]
 [ext_resource type="Texture2D" uid="uid://de1duiojo0oaj" path="res://Sprites/atlas/spritesheet-tiles-default.png" id="3_wx831"]
+
+[sub_resource type="Animation" id="Animation_mvx33"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.07450981, 0.07450981, 0.07450981, 1), Color(0.07450981, 0.07450981, 0.07450981, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e1e8u"]
+resource_name = "fade_out_in"
+
+[sub_resource type="Animation" id="Animation_wx831"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.07450981, 0.07450981, 0.07450981, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y870y"]
+_data = {
+&"RESET": SubResource("Animation_wx831"),
+&"fade_in": SubResource("Animation_mvx33"),
+&"fade_out_in": SubResource("Animation_e1e8u")
+}
 
 [node name="FloraPlatform" instance=ExtResource("1_mvx33")]
 extension_texture = ExtResource("2_e1e8u")
@@ -18,3 +58,17 @@ region_rect = Rect2(780, 195, 64, 64)
 position = Vector2(32, -32)
 scale = Vector2(0.5, 0.5)
 sync_to_physics = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+root_node = NodePath("../CanvasLayer/ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_y870y")
+}
+autoplay = "fade_in"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.07450981, 0.07450981, 0.07450981, 0)
