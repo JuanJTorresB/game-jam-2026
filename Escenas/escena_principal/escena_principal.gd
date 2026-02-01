@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var secciones: Array[PackedScene]
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var _seccion_actual: int = 0
 var _nivel_instanciado: Node
@@ -23,11 +24,24 @@ func _eliminar_nivel():
 	
 func _reiniciar_nivel():
 	print("Reiniciando el nivel")
+	
+	animation_player.play_backwards("fade")
+	await animation_player.animation_finished
+	
 	_eliminar_nivel()
 	_crear_nivel.call_deferred(_seccion_actual)
 	
+	animation_player.play("fade")
+	
 func cambio_de_nivel(_entrando_a_seccion : int):
+	
 	print("Cambio Nivel, Var: Entrando a Seccion: "+str(_entrando_a_seccion))
+	
+	animation_player.play_backwards("fade")
+	await animation_player.animation_finished
+	
 	_seccion_actual = _entrando_a_seccion
 	_eliminar_nivel()
 	_crear_nivel.call_deferred(_entrando_a_seccion)
+	
+	animation_player.play("fade")

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkmj3s48xpl7p"]
+
+[ext_resource type="Script" uid="uid://yq2x0rnlp35k" path="res://Escenas/cutscenes/level_fade.gd" id="1_s64d8"]
+
+[sub_resource type="Animation" id="Animation_1vowy"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.080783345, 0.080783345, 0.080783345, 1), Color(0.08235294, 0.08235294, 0.08235294, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5heei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qhthj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.08235294, 0.08235294, 0.08235294, 0), Color(0.08078337, 0.08078337, 0.08078337, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_fade_out"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x51tv"]
+_data = {
+&"RESET": SubResource("Animation_5heei"),
+&"fade_in": SubResource("Animation_1vowy"),
+&"fade_out": SubResource("Animation_qhthj")
+}
+
+[node name="LevelFadein" type="Node2D"]
+script = ExtResource("1_s64d8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_x51tv")
+}
+autoplay = "fade_in"

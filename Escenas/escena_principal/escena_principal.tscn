@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh8f0c0hr5q7l"]
+[gd_scene load_steps=13 format=3 uid="uid://bh8f0c0hr5q7l"]
 
 [ext_resource type="Script" uid="uid://b1ikp00kvvhhb" path="res://Escenas/escena_principal/escena_principal.gd" id="1_d4by0"]
 [ext_resource type="PackedScene" uid="uid://cbqxkwlhmxq6e" path="res://Escenas/niveles/escena_nivel_1/escena_nivel_1.tscn" id="3_4ly5i"]
@@ -9,10 +9,66 @@
 [ext_resource type="PackedScene" uid="uid://4qs443qg2iej" path="res://Escenas/niveles/escena_nivel_4/Escena_Nivel_4.tscn" id="6_ueh2r"]
 [ext_resource type="PackedScene" uid="uid://bfuqg68u7u0if" path="res://Escenas/nivel_tutorial/Nivel_Tutorial.tscn" id="8_81nay"]
 
+[sub_resource type="Animation" id="Animation_e1e8u"]
+resource_name = "fade_out_in"
+
+[sub_resource type="Animation" id="Animation_wx831"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.07450981, 0.07450981, 0.07450981, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mvx33"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.07450981, 0.07450981, 0.07450981, 1), Color(0.07450981, 0.07450981, 0.07450981, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y870y"]
+_data = {
+&"RESET": SubResource("Animation_wx831"),
+&"fade": SubResource("Animation_mvx33"),
+&"fade_out_in": SubResource("Animation_e1e8u")
+}
+
 [node name="EscenaPrincipal" type="Node2D"]
 script = ExtResource("1_d4by0")
 secciones = Array[PackedScene]([ExtResource("8_81nay"), ExtResource("3_81nay"), ExtResource("3_4ly5i"), ExtResource("4_81nay"), ExtResource("5_o0x7m"), ExtResource("6_ueh2r")])
 
 [node name="game_state" parent="." instance=ExtResource("6_dc0xd")]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_y870y")
+}
+autoplay = "fade"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07450981, 0.07450981, 0.07450981, 0)
