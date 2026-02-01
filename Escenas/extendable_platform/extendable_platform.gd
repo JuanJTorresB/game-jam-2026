@@ -49,10 +49,10 @@ func update_position() -> void:
 		queue_redraw()
 		
 		collision_shape_2d.scale.y = stalk_segments + 1
-		collision_shape_2d.position.y = (stalk_segments * stalk_tex_height) * 0.5
-		if inverted:
-			collision_shape_2d.position.y -= target_length
+		collision_shape_2d.position.y = (stalk_segments * stalk_tex_height)
+		#dif inverted:
+			#collision_shape_2d.position.y -= target_length
 	
 
 func extend() -> void:
-	grown_time_left = 0.0 if grown_time_left > 0 else time_extended if time_extended >= 0 else 1.0
+	grown_time_left = 0 if grown_time_left > 0 else time_extended if time_extended >= 0 else 1
