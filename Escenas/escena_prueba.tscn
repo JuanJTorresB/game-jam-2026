@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuttj80ecixj"]
+[gd_scene load_steps=5 format=4 uid="uid://cuttj80ecixj"]
 
-[ext_resource type="PackedScene" uid="uid://s68oihj7clms" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
-[ext_resource type="PackedScene" uid="uid://cieye8rvurm18" path="res://Escenas/sonido_fondo/sonido_fondo.tscn" id="1_o1ito"]
+[ext_resource type="PackedScene" uid="uid://waq13pgekiq5" path="res://Escenas/jugador.tscn" id="1_c0h3w"]
 [ext_resource type="PackedScene" uid="uid://f34lpc0tx5wg" path="res://Escenas/plataforma.tscn" id="2_vsqur"]
+[ext_resource type="TileSet" uid="uid://d3x81hieuh26x" path="res://Sprites/tile_set/pinchos_prueba.tres" id="3_o1ito"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqur"]
 size = Vector2(1155, 152)
@@ -24,3 +24,7 @@ position = Vector2(193, 348)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PISO/StaticBody2D"]
 position = Vector2(575.5, 575)
 shape = SubResource("RectangleShape2D_vsqur")
+
+[node name="Pinchos" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAaAB4AAAAAAAAAAAAbAB4AAAABAAAAAAAcAB4AAAACAAAAAAAdAB4AAAADAAAAAAAeAB4AAAAEAAAAAAAfAB4AAAAFAAAAAAAgAB4AAAAGAAAAAAAhAB4AAAAHAAAAAAApAB4AAAAAAAAAAAAqAB4AAAABAAAAAAArAB4AAAACAAAAAAAsAB4AAAADAAAAAAAtAB4AAAAEAAAAAAAuAB4AAAAFAAAAAAAvAB4AAAAGAAAAAAAwAB4AAAAHAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAABAAAAAAA2AB4AAAACAAAAAAA3AB4AAAADAAAAAAA4AB4AAAAEAAAAAAA5AB4AAAAFAAAAAAA6AB4AAAAGAAAAAAA7AB4AAAAHAAAAAAA=")
+tile_set = ExtResource("3_o1ito")

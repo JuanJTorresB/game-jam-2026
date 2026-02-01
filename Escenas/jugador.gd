@@ -2,12 +2,19 @@ extends CharacterBody2D
 class_name PlayerScript
 
 @export var can_dash: bool = false
+signal personaje_muerto
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
 @onready var ray_center  : RayCast2D = $RayCenter
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound_walking: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+@export var material_presonaje_rojo: ShaderMaterial
+@export var animacion: Node
+@export var area_2d : Area2D
+
+var _muerto: bool = false
 
 const TILE_SIZE = 64
 const SPEED_TILES = 6
@@ -48,7 +55,14 @@ var jumping := false
 
 @onready var respawn_point := global_position
 
+func _ready() -> void:
+	add_to_group("personajes")
+	area_2d.body_entered.connect(_on_area_2d_body_entered)
+
 func _physics_process(delta):	
+	
+	if _muerto:
+		return
 	
 	# Definir direccion del personaje
 	var direction = Input.get_axis("left", "right")	
@@ -164,4 +178,11 @@ func get_dash_direction():
 	if dir != 0:
 		return sign(dir)
 	return -1 if player_sprite.flip_h else 1 #sign(velocity.x) if velocity.x != 0 else 1
+	
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	animacion.material = material_presonaje_rojo 
+	_muerto = true
+	player_sprite.stop()
+	await get_tree().create_timer(0.5).timeout
+	personaje_muerto.emit()
 	
