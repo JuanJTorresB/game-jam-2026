@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://jl88bb4rvepv"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://jl88bb4rvepv"]
 
 [ext_resource type="Texture2D" uid="uid://b5fhx3x8tyw1s" path="res://Sprites/Dungeon Tile Set.png" id="1_07mxy"]
+[ext_resource type="Texture2D" uid="uid://bpf285ulvvud2" path="res://Sprites/New Piskel.png" id="2_y4vp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pfy0v"]
 texture = ExtResource("1_07mxy")
@@ -140,7 +141,37 @@ texture = ExtResource("1_07mxy")
 11:15/0 = 0
 12:15/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j6wh"]
+texture = ExtResource("2_y4vp3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+
 [resource]
-physics_layer_0/collision_layer = 1
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_pfy0v")
+sources/1 = SubResource("TileSetAtlasSource_8j6wh")
