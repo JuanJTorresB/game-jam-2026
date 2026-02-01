@@ -6,7 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area2d.body_entered.connect(_puerta_usada)
-	if GameState.completed_levels.get("level_"+str(nivel_destino), false):
+	if GameState.completed_levels.get("level_"+str(nivel_destino-1), false): # El menos uno es debido a que el nivel por el hub y el tutorial, el nivel uno debe ser 2 
 		self.queue_free()
 
 func _puerta_usada(_body):
@@ -24,7 +24,7 @@ func _puerta_usada(_body):
 		4:
 			pass
 		5:
-			pass
+			_body.get_parent().enabled = true
 		_:
 			pass
 	

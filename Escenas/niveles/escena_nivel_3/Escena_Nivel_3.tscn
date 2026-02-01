@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://euuwle20g673"]
+[gd_scene load_steps=6 format=4 uid="uid://euuwle20g673"]
 
 [ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="1_4rjri"]
 [ext_resource type="TileSet" uid="uid://jl88bb4rvepv" path="res://Sprites/tile_set/Tile_set_01.tres" id="2_g1o6r"]
 [ext_resource type="PackedScene" uid="uid://byjj1gfpbm3l5" path="res://Escenas/puerta/puerta.tscn" id="3_ayeen"]
 [ext_resource type="PackedScene" uid="uid://bp7dudkfs2ktv" path="res://Escenas/mascara_fragmento/mascara_fragmento.tscn" id="4_56st3"]
+[ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="5_arw6m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,7 +19,7 @@ tile_map_data = PackedByteArray("AAABAP//AQABAAAAAAACAP//AQABAAAAAAADAP//AQABAAA
 tile_set = ExtResource("2_g1o6r")
 
 [node name="Mascara_Fragmento3" parent="." instance=ExtResource("4_56st3")]
-position = Vector2(2950, -1732)
+position = Vector2(3280, -1989)
 fragmento_numero = 3
 
 [node name="Puertas" type="Node2D" parent="."]
@@ -26,3 +27,6 @@ fragmento_numero = 3
 [node name="Puerta" parent="Puertas" instance=ExtResource("3_ayeen")]
 position = Vector2(2792, -1982)
 nivel_destino = 1
+
+[node name="Node2D" parent="." instance=ExtResource("5_arw6m")]
+position = Vector2(3703, -2109)

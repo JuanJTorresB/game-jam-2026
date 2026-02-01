@@ -17,8 +17,8 @@ tile_map_data = PackedByteArray("AABaAP//AQAAAAAAAABbAP//AQAAAAAAAABcAP//AQAAAAA
 tile_set = ExtResource("1_gkjyt")
 
 [node name="Mascara_Fragmento2" parent="." instance=ExtResource("3_e1ono")]
-position = Vector2(328, -898)
-fragmento_numero = 1
+position = Vector2(316, -898)
+fragmento_numero = 4
 
 [node name="Player" parent="." instance=ExtResource("3_vkin3")]
 position = Vector2(187, -1067)
