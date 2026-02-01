@@ -13,6 +13,7 @@ func _puerta_usada(_body):
 	print("Cuerpo entrando a la puerta: " + str(nivel_destino))
 	print(get_parent().get_parent().get_parent().name)
 	print("Cambio Nivel, Var: 	Nivel Destino: "+str(nivel_destino))
+	GameState.level_skin = nivel_destino
 	get_parent().get_parent().get_parent().cambio_de_nivel(nivel_destino)
 	match nivel_destino:
 		1:

@@ -69,7 +69,7 @@ func _physics_process(delta):
 	# Definir direccion del personaje
 	var direction = Input.get_axis("left", "right")	
 	if direction != 0:
-		player_sprite.flip_h = direction < 0
+		player_sprite.flip_h = direction > 0
 	
 	# Actualizar coyote time
 	if is_on_floor():
@@ -131,17 +131,51 @@ func _physics_process(delta):
 
 	#Animacion del personaje
 	if is_dashing:
-		player_sprite.play("dash")
+		match GameState.level_skin:
+			2:
+				player_sprite.play("dash")
+			_:
+				pass
 		sound_walking.stop()
 	elif jumping:
-		player_sprite.play("jump")
+		match GameState.level_skin:
+			2:
+				player_sprite.play("jump_gato")
+			3:
+				player_sprite.play("jump_cabra")
+			4:
+				player_sprite.play("jump_dorado")
+			5:
+				player_sprite.play("jump_elefante")
+			_:
+				player_sprite.play("jump_base")
 		sound_walking.stop()
 	elif direction != 0 :
-		player_sprite.play("walk")
+		match GameState.level_skin:
+			2:
+				player_sprite.play("walk_gato")
+			3:
+				player_sprite.play("walk_cabra")
+			4:
+				player_sprite.play("walk_dorado")
+			5:
+				player_sprite.play("walk_elefante")
+			_:
+				player_sprite.play("walk_base")
 		if !sound_walking.is_playing():
 			sound_walking.play()
 	else:
-		player_sprite.play("idle")
+		match GameState.level_skin:
+			2:
+				player_sprite.play("idle_gato")
+			3:
+				player_sprite.play("idle_cabra")
+			4:
+				player_sprite.play("idle_dorado")
+			5:
+				player_sprite.play("idle_elefante")
+			_:
+				player_sprite.play("idle_base")
 		sound_walking.stop()
 	
 	
