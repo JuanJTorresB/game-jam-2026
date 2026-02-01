@@ -1,12 +1,14 @@
 extends CharacterBody2D
 class_name PlayerScript
 
+@export var can_dash: bool = false
 signal personaje_muerto
 
 @onready var ray_left   : RayCast2D = $RayLeft
 @onready var ray_right  : RayCast2D = $RayRight
 @onready var ray_center  : RayCast2D = $RayCenter
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sound_walking: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var material_presonaje_rojo: ShaderMaterial
 @export var animacion: Node
@@ -73,6 +75,7 @@ func _physics_process(delta):
 		h_vel *= 0.8
 		inputless_slingshot_time = 0
 		jumping = false
+		
 
 	# Gravedad
 	if not is_on_floor():
@@ -92,7 +95,6 @@ func _physics_process(delta):
 		velocity.y *= JUMP_CUT_MULTIPLIER
 		
 	if Input.is_action_just_pressed("dash"):
-		print_debug("dash")
 		start_dash()
 		
 	if jump_buffer_timer > 0 and coyote_timer > 0:
@@ -128,14 +130,19 @@ func _physics_process(delta):
 	#Animacion del personaje
 	if is_dashing:
 		player_sprite.play("dash")
+		sound_walking.stop()
 	elif jumping:
 		player_sprite.play("jump")
+		sound_walking.stop()
 	elif direction != 0 :
 		player_sprite.play("walk")
+		if !sound_walking.is_playing():
+			sound_walking.play()
 	else:
 		player_sprite.play("idle")
+		sound_walking.stop()
 	
-
+	
 	apply_edge_correction()
 	move_and_slide()
 
@@ -152,7 +159,7 @@ func apply_edge_correction():
 		return
 		
 func start_dash():
-	if is_dashing or dash_cooldown > 0:
+	if !can_dash or is_dashing or dash_cooldown > 0:
 		return
 
 	is_dashing = true

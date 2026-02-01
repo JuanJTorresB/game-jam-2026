@@ -9,6 +9,8 @@ size = Vector2(1155, 152)
 
 [node name="Escena Prueba" type="Node2D"]
 
+[node name="SonidoFondo" parent="." instance=ExtResource("1_o1ito")]
+
 [node name="Node2D" parent="." instance=ExtResource("1_c0h3w")]
 position = Vector2(199, 258)
 
