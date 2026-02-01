@@ -125,56 +125,56 @@ rotation = 1.5707964
 target_length = 256.0
 
 [node name="FloraPlatform20" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(896, 63)
-target_length = 64.0
+position = Vector2(896, 128)
+target_length = 128.0
 
 [node name="FloraPlatform21" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(959, 63)
-target_length = 64.0
+position = Vector2(960, 128)
+target_length = 128.0
 
 [node name="FloraPlatform22" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1536, 64)
-target_length = 64.0
+position = Vector2(1536, 128)
+target_length = 128.0
 
 [node name="FloraPlatform23" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1599, 64)
-target_length = 64.0
+position = Vector2(1599, 128)
+target_length = 128.0
 
 [node name="FloraPlatform24" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(2112, 63)
-target_length = 64.0
+position = Vector2(2112, 128)
+target_length = 128.0
 
 [node name="FloraPlatform25" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(2175, 63)
-target_length = 64.0
+position = Vector2(2175, 128)
+target_length = 128.0
 
 [node name="FloraPlatform26" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1216, 63)
-target_length = 64.0
+position = Vector2(1216, 128)
+target_length = 128.0
 inverted = true
 
 [node name="FloraPlatform27" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1279, 63)
-target_length = 64.0
+position = Vector2(1279, 128)
+target_length = 128.0
 inverted = true
 
 [node name="FloraPlatform28" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1791, 63)
-target_length = 64.0
+position = Vector2(1792, 128)
+target_length = 128.0
 inverted = true
 
 [node name="FloraPlatform29" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(1854, 63)
-target_length = 64.0
+position = Vector2(1855, 128)
+target_length = 128.0
 inverted = true
 
 [node name="FloraPlatform30" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(2432, 64)
+position = Vector2(2464, 1944)
 target_length = 64.0
 inverted = true
 
 [node name="FloraPlatform31" parent="." instance=ExtResource("1_fbtq4")]
-position = Vector2(2495, 64)
+position = Vector2(2527, 1944)
 target_length = 64.0
 inverted = true
 
@@ -184,6 +184,16 @@ rotation = -1.5707964
 target_length = 256.0
 inverted = true
 
+[node name="FloraPlatform33" parent="." instance=ExtResource("1_fbtq4")]
+position = Vector2(2432, 128)
+target_length = 128.0
+inverted = true
+
+[node name="FloraPlatform34" parent="." instance=ExtResource("1_fbtq4")]
+position = Vector2(2496, 128)
+target_length = 128.0
+inverted = true
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-384, 59)
 rotation = 0.00022521023
@@ -191,7 +201,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("2_6s4xf")
 
 [node name="Player" parent="." instance=ExtResource("3_6s4xf")]
-position = Vector2(-132, -2273)
+position = Vector2(3136, -192)
 enabled = false
 
 [node name="Puertas" type="Node2D" parent="."]
@@ -199,6 +209,7 @@ position = Vector2(3132, -185)
 
 [node name="Puerta" parent="Puertas" instance=ExtResource("4_845dn")]
 position = Vector2(217, 53)
+nivel_destino = 1
 
 [node name="Fragmentos de Mascara" type="Node2D" parent="."]
 position = Vector2(3132, -185)
