@@ -23,6 +23,7 @@ tile_set = ExtResource("1_7sf02")
 
 [node name="Player" parent="." instance=ExtResource("3_hn0rv")]
 position = Vector2(3561, -66)
+enabled = false
 can_dash = true
 
 [node name="Mascara_Fragmento2" parent="." instance=ExtResource("6_fynpd")]

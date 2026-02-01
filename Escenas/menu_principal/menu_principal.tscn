@@ -1,4 +1,16 @@
-[gd_scene format=3 uid="uid://byxu6xb5xr45a"]
+[gd_scene load_steps=11 format=3 uid="uid://byxu6xb5xr45a"]
+
+[ext_resource type="Texture2D" uid="uid://chl7t7doa1tqd" path="res://Sprites/Stalk.png" id="1_ej2ee"]
+[ext_resource type="Texture2D" uid="uid://cenj3y54sbcw5" path="res://Sprites/Mascaras_Sprites/Mascara Flora.png" id="2_i7bma"]
+[ext_resource type="Texture2D" uid="uid://dst2xsfa15va6" path="res://Sprites/Mascaras_Sprites/Mascara Marimonda.png" id="3_w8t3o"]
+[ext_resource type="Theme" uid="uid://8gm3f7aoj4kw" path="res://Themes/boton_menu_principal.tres" id="4_sjfpa"]
+[ext_resource type="Texture2D" uid="uid://bhi4iyxdg6l5f" path="res://Sprites/Mascaras_Sprites/Mascara Tigre.png" id="5_baawd"]
+[ext_resource type="Script" uid="uid://tmcycaw6qcru" path="res://Escenas/menu_principal/button_salir.gd" id="5_i7bma"]
+[ext_resource type="Script" uid="uid://cyjip04b1v216" path="res://Escenas/menu_principal/button_jugar.gd" id="5_w8t3o"]
+[ext_resource type="PackedScene" uid="uid://bh8f0c0hr5q7l" path="res://Escenas/escena_principal/escena_principal.tscn" id="6_sjfpa"]
+[ext_resource type="Texture2D" uid="uid://b02pqvnfgiq4v" path="res://Sprites/Mascaras_Sprites/Mascara Dorada.png" id="6_sqrey"]
+
+[sub_resource type="Theme" id="Theme_v3x1a"]
 
 [node name="Menu Principal" type="Control"]
 layout_mode = 3
@@ -7,3 +19,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+scale = Vector2(0.9961459, 1.0033654)
+texture = ExtResource("1_ej2ee")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5509981, 0.31150454)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = SubResource("Theme_v3x1a")
+texture = ExtResource("2_i7bma")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("3_w8t3o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="button_jugar" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("4_sjfpa")
+text = "Jugar"
+script = ExtResource("5_w8t3o")
+escena_principal = ExtResource("6_sjfpa")
+
+[node name="Button_salir" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("4_sjfpa")
+text = "Salir"
+script = ExtResource("5_i7bma")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_baawd")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("6_sqrey")
