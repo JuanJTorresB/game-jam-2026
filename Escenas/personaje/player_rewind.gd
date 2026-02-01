@@ -10,12 +10,19 @@ extends Node2D
 @export var afterimage_color := Color(4.666, 18.892, 18.892, 0.4)
 @export var max_slingshot_vel = 1500
 
+@export var can_dash : bool
+		
+@export var spotlight : ColorRect
+
 var snapshots: Array = []
 
 var prev_rewind_pos: Vector2
 var can_slingshot := false
 var rewind_velocity := 0.0
 
+func _ready() -> void:
+	player_script.can_dash = can_dash
+	player_script.spotlight = spotlight
 
 func _physics_process(_delta: float) -> void:
 
