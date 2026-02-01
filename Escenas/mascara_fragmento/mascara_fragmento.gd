@@ -11,6 +11,8 @@ extends Node2D
 @export var mascara_4_png: Texture
 @export var godot_default: Texture
 
+const OUTRO_CUTSCENE = preload("uid://b3qlshbe44b7f")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area_2d.body_entered.connect(_recogida)
@@ -33,6 +35,9 @@ func _recogida(_body) -> void:
 	print("Body Take Mascara")
 	GameState.completed_levels["level_"+str(fragmento_numero)] = true
 	print(GameState.completed_levels)
+	
+	if GameState.completed_levels["level_1"] and GameState.completed_levels["level_2"] and GameState.completed_levels["level_3"] and GameState.completed_levels["level_4"]:
+		get_tree().change_scene_to_packed(OUTRO_CUTSCENE)
 	
 	queue_free()
 
