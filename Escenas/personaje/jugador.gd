@@ -58,7 +58,7 @@ var jumping := false
 @onready var respawn_point := global_position
 
 func _ready() -> void:
-	add_to_group("personajes")
+	get_parent().add_to_group("personajes")
 	area_2d.body_entered.connect(_on_area_2d_body_entered)
 
 func _physics_process(delta):	
@@ -202,4 +202,5 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	player_sprite.stop()
 	await get_tree().create_timer(0.5).timeout
 	personaje_muerto.emit()
+	print("Signal Enviada")
 	

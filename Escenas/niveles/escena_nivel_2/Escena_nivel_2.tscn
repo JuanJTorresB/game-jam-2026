@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bjpmtbs7f88lr"]
+[gd_scene load_steps=5 format=4 uid="uid://bjpmtbs7f88lr"]
 
 [ext_resource type="PackedScene" path="res://Escenas/extendable_platform/flora_platform.tscn" id="1_fbtq4"]
 [ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="2_6s4xf"]
 [ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="3_6s4xf"]
+[ext_resource type="PackedScene" uid="uid://byjj1gfpbm3l5" path="res://Escenas/puerta/puerta.tscn" id="4_845dn"]
 
 [node name="EscenaNivel2" type="Node2D"]
 
@@ -173,5 +174,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("2_6s4xf")
 
 [node name="Player" parent="." instance=ExtResource("3_6s4xf")]
-position = Vector2(-68, -204)
+position = Vector2(-110, -2217)
 enabled = false
+
+[node name="Puerta" parent="." instance=ExtResource("4_845dn")]
+position = Vector2(3349, -132)
