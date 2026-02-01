@@ -1,8 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://cxqwygimosfb6"]
+[gd_scene load_steps=41 format=3 uid="uid://cxqwygimosfb6"]
 
 [ext_resource type="Script" uid="uid://4b3jlc64ote0" path="res://Escenas/personaje/jugador.gd" id="1_i8vih"]
 [ext_resource type="Script" uid="uid://co5t5l88f7l4n" path="res://Escenas/personaje/player_rewind.gd" id="3_ewkf5"]
 [ext_resource type="Shader" uid="uid://dtjuigxjvukm1" path="res://Shaders/shader_rojo.tres" id="3_wlual"]
+[ext_resource type="Texture2D" uid="uid://d3t1mymm4udax" path="res://Sprites/dash1.png" id="4_d8ijl"]
+[ext_resource type="Texture2D" uid="uid://by02uf3yga5lg" path="res://Sprites/dash2.png" id="5_cx0ga"]
 [ext_resource type="Texture2D" uid="uid://r1losed6yrqi" path="res://Sprites/base-base.png" id="5_qx0dp"]
 [ext_resource type="AudioStream" uid="uid://dlrh82red1ygf" path="res://Sounds/Walking_Player.wav" id="5_uqdtg"]
 [ext_resource type="Texture2D" uid="uid://b02avve7c78mv" path="res://Sprites/base-cabra.png" id="6_d8ijl"]
@@ -45,10 +47,10 @@ size = Vector2(40, 66)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("32_hj0lm")
+"texture": ExtResource("4_d8ijl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_614ka")
+"texture": ExtResource("5_cx0ga")
 }],
 "loop": true,
 "name": &"dash",
@@ -264,7 +266,7 @@ target_position = Vector2(1, -45)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(2, -13)
 sprite_frames = SubResource("SpriteFrames_66cid")
-animation = &"idle_base"
+animation = &"dash"
 autoplay = "idle_base"
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
