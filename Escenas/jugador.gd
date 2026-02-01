@@ -13,6 +13,7 @@ signal personaje_muerto
 @export var animacion: Node
 @export var area_2d : Area2D
 @export var spotlight: ColorRect
+@export var camera_2d: Camera2D
 
 var _muerto: bool = false
 
