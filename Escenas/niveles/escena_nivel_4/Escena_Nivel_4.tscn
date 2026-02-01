@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://4qs443qg2iej"]
+[gd_scene load_steps=7 format=4 uid="uid://4qs443qg2iej"]
 
 [ext_resource type="TileSet" uid="uid://jl88bb4rvepv" path="res://Sprites/tile_set/Tile_set_01.tres" id="1_gkjyt"]
 [ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="1_vic46"]
 [ext_resource type="PackedScene" uid="uid://bp7dudkfs2ktv" path="res://Escenas/mascara_fragmento/mascara_fragmento.tscn" id="3_e1ono"]
 [ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="3_vkin3"]
 [ext_resource type="PackedScene" uid="uid://byjj1gfpbm3l5" path="res://Escenas/puerta/puerta.tscn" id="5_lh8u4"]
+[ext_resource type="Texture2D" uid="uid://ceteg7twss0su" path="res://Sprites/bg/Artboard6.png" id="6_lh8u4"]
 
 [node name="EscenaNivel4" type="Node2D"]
 
@@ -28,3 +29,18 @@ position = Vector2(2512, -2047)
 
 [node name="Puerta" parent="Puertas" instance=ExtResource("5_lh8u4")]
 nivel_destino = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.87058824)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 769.0
+offset_bottom = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_lh8u4")

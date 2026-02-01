@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://euuwle20g673"]
+[gd_scene load_steps=8 format=4 uid="uid://euuwle20g673"]
 
 [ext_resource type="TileSet" uid="uid://bwqm1safsm0md" path="res://Sprites/tile_set/Tile_Map_Principal.tres" id="1_4rjri"]
 [ext_resource type="TileSet" uid="uid://jl88bb4rvepv" path="res://Sprites/tile_set/Tile_set_01.tres" id="2_g1o6r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bp7dudkfs2ktv" path="res://Escenas/mascara_fragmento/mascara_fragmento.tscn" id="4_56st3"]
 [ext_resource type="Material" uid="uid://cnmcj6347di6a" path="res://Shaders/spotlight.tres" id="5_6jhv4"]
 [ext_resource type="PackedScene" uid="uid://cxqwygimosfb6" path="res://Escenas/personaje/jugador.tscn" id="5_arw6m"]
+[ext_resource type="Texture2D" uid="uid://ceteg7twss0su" path="res://Sprites/bg/Artboard6.png" id="7_kjyvn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -43,3 +44,18 @@ grow_vertical = 2
 position = Vector2(3271, -2172)
 enabled = false
 spotlight = NodePath("../CanvasLayer/ColorRect")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0.87058824)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 769.0
+offset_bottom = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_kjyvn")
