@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dvtomoqbs1ekn"]
 
 [ext_resource type="FontFile" uid="uid://dtqptc4ywjurp" path="res://Fonts/ZenithaClassic_PERSONAL_USE_ONLY.otf" id="1_otyuj"]
-[ext_resource type="Script" uid="uid://cx7lvxpcyfe4y" path="res://Escenas/cutscenes/press_to_skip.gd" id="1_oybj0"]
-[ext_resource type="Texture2D" uid="uid://c5rwpacstwx7p" path="res://icon.svg" id="2_61eif"]
+[ext_resource type="Script" path="res://Escenas/cutscenes/press_to_skip.gd" id="1_oybj0"]
+[ext_resource type="Texture2D" uid="uid://brkv4tf7a1ndj" path="res://Sprites/extras/Marimonda Completa.png" id="3_r6ikc"]
 [ext_resource type="PackedScene" uid="uid://bkmj3s48xpl7p" path="res://Escenas/cutscenes/level_fade.tscn" id="4_y1sn8"]
 [ext_resource type="PackedScene" uid="uid://bh8f0c0hr5q7l" path="res://Escenas/escena_principal/escena_principal.tscn" id="5_r6ikc"]
 
@@ -184,24 +184,27 @@ script = ExtResource("1_oybj0")
 offset_top = 40.0
 offset_right = 1149.0
 offset_bottom = 180.99997
-text = "Did you know that Steve Jobs 
-died of ligma?"
+text = "Has deshonrado tu historia
+siendo arrogante"
 label_settings = SubResource("LabelSettings_61eif")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 offset_left = 472.0
 offset_top = 102.0
-offset_right = 1624.0
-offset_bottom = 188.00012
-text = "Ligma Balls"
+offset_right = 1781.0
+offset_bottom = 366.0
+scale = Vector2(1.00363, 1)
+text = "conocela o abandona toda
+esperanza
+"
 label_settings = SubResource("LabelSettings_oybj0")
 horizontal_alignment = 1
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(564, 415.69998)
-scale = Vector2(3.546875, 2.0359375)
-texture = ExtResource("2_61eif")
+scale = Vector2(0.095315166, 0.07930149)
+texture = ExtResource("3_r6ikc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
@@ -210,6 +213,7 @@ libraries = {
 autoplay = "cutscene"
 
 [node name="LevelFade" parent="CanvasLayer" instance=ExtResource("4_y1sn8")]
+scale = Vector2(1.0086519, 1)
 next_level = ExtResource("5_r6ikc")
 
 [node name="SkipCutsceneLabel" type="Label" parent="."]
